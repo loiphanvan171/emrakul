@@ -55,13 +55,23 @@ Never use bare python/pip. Never --system.
 | Kimi | Kimi K2.5 Thinking | Internet research |
 </workers>
 
-<mcp-tools>
-Ad-hoc (single task):
+<delegation-methods>
+MCP tools (single task, blocks until complete):
 - delegate_cursor, delegate_opencode, delegate_codex, delegate_kimi
 
-Swarm (batch parallel):
-- swarm_submit(yaml) → swarm_start(n) → swarm_status() → swarm_results() → swarm_clear()
-</mcp-tools>
+CLI background (true parallel, fire-and-forget):
+```bash
+uv run emrakul delegate kimi "task" --bg &
+uv run emrakul delegate cursor "task" --bg &
+uv run emrakul status all  # check later
+cat ~/.emrakul/outputs/{task-id}.json  # read result
+```
+
+Swarm (batch with dependencies):
+- swarm_submit(yaml) → swarm_start(n) → swarm_status() → swarm_results()
+
+For parallel research/implementation, prefer CLI background over MCP.
+</delegation-methods>
 
 <swarm-format>
 ```yaml

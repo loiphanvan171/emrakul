@@ -41,7 +41,7 @@ Use Emrakul MCP tools for all delegation:
 
 ## Delegation Examples
 
-### Single Task
+### Single Task (MCP - blocks until complete)
 ```python
 delegate_cursor(
     task="Implement user authentication with JWT",
@@ -50,7 +50,30 @@ delegate_cursor(
 )
 ```
 
-### Batch Parallel
+### True Parallel Execution (Bash background - preferred for multiple tasks)
+Use Bash with `run_in_background: true` for fire-and-forget parallel execution:
+
+```bash
+# Launch multiple tasks in parallel (each returns immediately)
+uv run emrakul delegate kimi "Research GPU fundamentals" --bg &
+uv run emrakul delegate kimi "Research aerospace GPU" --bg &
+uv run emrakul delegate cursor "Implement feature X" --bg &
+
+# Continue working on other things...
+
+# Check status later
+uv run emrakul status all
+
+# Read specific result
+cat ~/.emrakul/outputs/kimi-abc123.json
+```
+
+This is better than MCP for parallel work because:
+- Tasks run truly in parallel (not sequential)
+- Claude can continue working while tasks execute
+- Results persist to files for later reading
+
+### Batch Parallel (Swarm - for coordinated tasks with dependencies)
 ```python
 swarm_submit(tasks_yaml="""
 tasks:
