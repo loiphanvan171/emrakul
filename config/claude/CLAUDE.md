@@ -31,20 +31,20 @@ emrakul delegate kimi "Research OAuth2 best practices"
 emrakul delegate opencode "Fix typo in config.py"
 ```
 
-### Parallel Execution (fire and forget)
-Use `--bg &` for true parallelism - returns immediately, runs in background:
-```bash
-emrakul delegate kimi "Research topic 1" --bg &
-emrakul delegate kimi "Research topic 2" --bg &
-emrakul delegate cursor "Implement feature A" --bg &
-emrakul delegate cursor "Implement feature B" --bg &
+### Parallel Execution (Claude Code native background)
+Use `run_in_background=True` for native parallel execution - Claude Code tracks tasks and notifies on completion:
+```python
+# Launch all in parallel (returns immediately with task IDs)
+Bash(command='emrakul delegate kimi "Research topic 1" --json', run_in_background=True)
+Bash(command='emrakul delegate kimi "Research topic 2" --json', run_in_background=True)
+Bash(command='emrakul delegate cursor "Implement feature A" --json', run_in_background=True)
+Bash(command='emrakul delegate cursor "Implement feature B" --json', run_in_background=True)
 ```
 
-### Check Status and Results
-```bash
-emrakul status all              # List all background tasks
-emrakul status kimi-abc123      # Check specific task
-cat ~/.emrakul/outputs/kimi-abc123.json  # Read result
+### Check Results
+```python
+# When notified of completion, read results
+TaskOutput(task_id="abc123", block=False)
 ```
 
 ### CLI Options

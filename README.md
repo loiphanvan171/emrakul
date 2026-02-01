@@ -72,19 +72,24 @@ emrakul delegate opencode "Fix typo in config.py"
 
 ### Parallel Execution
 
-Use `--bg &` for true parallelism - tasks run in background:
+In Claude Code, use native background execution:
 
+```python
+# Launch all in parallel (returns immediately with task IDs)
+Bash(command='emrakul delegate kimi "Research topic 1" --json', run_in_background=True)
+Bash(command='emrakul delegate kimi "Research topic 2" --json', run_in_background=True)
+Bash(command='emrakul delegate cursor "Implement feature A" --json', run_in_background=True)
+
+# Claude Code tracks tasks and notifies on completion
+# Read results with TaskOutput
+TaskOutput(task_id="abc123", block=False)
+```
+
+Or from shell:
 ```bash
 emrakul delegate kimi "Research topic 1" --bg &
 emrakul delegate kimi "Research topic 2" --bg &
-emrakul delegate cursor "Implement feature A" --bg &
-emrakul delegate cursor "Implement feature B" --bg &
-
-# Check status later
 emrakul status all
-
-# Read results
-cat ~/.emrakul/outputs/kimi-abc123.json
 ```
 
 ### Options

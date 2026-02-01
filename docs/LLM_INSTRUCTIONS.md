@@ -36,27 +36,25 @@ emrakul delegate opencode "task" # Quick edits (ZAI GLM 4.7)
 
 ## Parallel Execution
 
-Use `--bg &` for true parallelism - returns immediately, runs in background:
+Use Claude Code's native `run_in_background=True` for parallel execution:
 
-```bash
-# Launch multiple tasks in parallel
-emrakul delegate kimi "Research GPU fundamentals" --bg &
-emrakul delegate kimi "Research aerospace GPU" --bg &
-emrakul delegate cursor "Implement feature X" --bg &
+```python
+# Launch multiple tasks in parallel (all return immediately with task IDs)
+Bash(command='emrakul delegate kimi "Research GPU fundamentals" --json', run_in_background=True)
+Bash(command='emrakul delegate kimi "Research aerospace GPU" --json', run_in_background=True)
+Bash(command='emrakul delegate cursor "Implement feature X" --json', run_in_background=True)
 
 # Continue working on other things...
 
-# Check status later
-emrakul status all
-
-# Read specific result
-cat ~/.emrakul/outputs/kimi-abc123.json
+# When notified of completion, read results
+TaskOutput(task_id="abc123", block=False)
 ```
 
-This is the preferred pattern for multiple independent tasks because:
+This is the preferred pattern because:
 - Tasks run truly in parallel (not sequential)
-- You can continue working while tasks execute
-- Results persist to files for later reading
+- Claude Code tracks tasks and notifies on completion
+- No manual file checking needed - use TaskOutput to read results
+- Task IDs let you track multiple concurrent delegations
 
 ## CLI Options
 
