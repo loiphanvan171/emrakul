@@ -31,21 +31,19 @@ emrakul delegate kimi "Research OAuth2 best practices"
 emrakul delegate opencode "Fix typo in config.py"
 ```
 
-### Parallel Execution (Claude Code native background)
-Use `run_in_background=True` for native parallel execution - Claude Code tracks tasks and notifies on completion:
+### Delegation (ALWAYS use background mode)
+ALWAYS use `run_in_background=True` for ALL delegations - Claude Code tracks tasks and notifies on completion:
 ```python
-# Launch all in parallel (returns immediately with task IDs)
-Bash(command='emrakul delegate kimi "Research topic 1" --json', run_in_background=True)
-Bash(command='emrakul delegate kimi "Research topic 2" --json', run_in_background=True)
-Bash(command='emrakul delegate cursor "Implement feature A" --json', run_in_background=True)
-Bash(command='emrakul delegate cursor "Implement feature B" --json', run_in_background=True)
-```
+# ALWAYS use run_in_background=True - returns immediately with task ID
+Bash(command='emrakul delegate kimi "Research topic" --json', run_in_background=True)
+Bash(command='emrakul delegate cursor "Implement feature" --json', run_in_background=True)
+Bash(command='emrakul delegate codex "Write tests" --json', run_in_background=True)
 
-### Check Results
-```python
-# When notified of completion, read results
+# Claude Code notifies when complete - then read results
 TaskOutput(task_id="abc123", block=False)
 ```
+
+NEVER run emrakul delegate without run_in_background=True. You will block and waste time.
 
 ### CLI Options
 ```
